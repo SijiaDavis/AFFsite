@@ -31,12 +31,18 @@ $(document).ready(function() {
             $("<a>").text(item.item_data.link_text).attr({"href":item.item_data.link, "target": "new"}).appendTo("#col"+ i % 3 + " .box"+i);
           }
           else if (item.service_name === 'Twitter') {
+            $(".box"+i).addClass("box-twitter");
+            
             // ribbon should display twitter icon
             $("<div>").attr("id", "ribbon").addClass("ribbon-black").append(
               $("<div>").append(
                 $("<a>").addClass("fa fa-twitter fa-2x").attr("aria-hidden", "true")
               )  
             ).appendTo("#col"+ i % 3 + " .box"+i);
+            
+            $("<h3>").text(item.item_data.user.username).appendTo("#col"+ i % 3 + " .box"+i);
+            $("<h4>").text(item.item_data.tweet).appendTo("#col"+ i % 3 + " .box"+i);
+            
           }
           else if (item.service_name === 'Instagram') {
             // ribbon should display instagram icon
@@ -45,6 +51,11 @@ $(document).ready(function() {
                 $("<a>").addClass("fa fa-instagram fa-2x").attr("aria-hidden", "true")
               )  
             ).appendTo("#col"+ i % 3 + " .box"+i);
+            
+            $("<img>").attr("src", "assets/images/photo" + getRandomPicNum() + ".jpg" ).addClass("img-responsive center-block").appendTo("#col"+ i % 3 + " .box"+i);
+            
+            $("<h5>").text(item.item_data.user.username).appendTo("#col"+ i % 3 + " .box"+i);
+            $("<p>").text(item.item_data.caption).appendTo("#col"+ i % 3 + " .box"+i);
           }
         
           if (i === 7) {

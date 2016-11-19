@@ -1,6 +1,16 @@
 body {
   height: 100%;
   with: 100%;
+  font-family: 'Lato', sans-serif;
+  background: url(../images/brickwall.png);
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  color: #80787A;
+}
+
+h5 {
+  font-weight: bold;
 }
 
 img {
@@ -41,6 +51,11 @@ a, a:hover {
   position: relative;
 }
 
+.box-twitter {
+  text-align: center;
+  padding: 35px 40px;
+}
+
 #ribbon {
   padding: 0 0 10px 0;
   position: absolute;
@@ -60,7 +75,7 @@ a, a:hover {
 
 .ribbon-black#ribbon div {
   background: #000;
-  background: linear-gradient(#6E6264 1%, #000 99%);
+  background: linear-gradient(#A89D9F 1%, #000 99%);
 }
 
 #ribbon div:after {
