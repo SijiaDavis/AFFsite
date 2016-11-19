@@ -5,6 +5,10 @@ body {
   background: url(../images/brickwall.png);
 }
 
+.navbar {
+  height: 55px;
+}
+
 h1, h2, h3, h4, h5, h6, p {
   color: #80787A;
 }
@@ -22,7 +26,7 @@ img {
 }
 
 .col-md-4 {
-  margin-top: 40px;
+  margin-top: 10px;
   height:100vp;
 }
 
@@ -53,7 +57,6 @@ a, a:hover {
 
 .box-twitter {
   text-align: center;
-  padding: 35px 40px;
 }
 
 #ribbon {
@@ -94,3 +97,87 @@ a, a:hover {
   border-left: 20px solid #000;
   border-right: 20px solid #000;
 }
+
+.button-box {
+    border: 3px solid #6699D4;
+    background-color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    margin:auto;
+    padding: 6px;
+    width: 140px;
+}
+
+.load-more-btn.center-block {
+  width: 140px;
+  margin: 10px auto 20px;
+}
+
+.nav-pills.center-block {
+  width: 304px;
+}
+a.load-more-btn, a.load-more-btn:hover {
+  color: #6699D4;
+}
+
+.button-box span {
+    transition: 0.3s;
+    position: relative;
+}
+
+/* animate buttons on hover */
+.button-box span:after {
+    content: '>>';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -30px;
+    transition: 0.3s;
+}
+
+.button-box:hover span {
+    padding-right: 25px;
+}
+
+.button-box:hover span:after {
+    opacity: 1;
+    right: 0;
+} /* end animate buttons on hover */
+
+.hidden {
+  display: none;
+}
+
+.btn {
+  padding: 0;
+  margin-top: 6px;
+  width: 100px;
+  }
+  
+.manual-btn.active a {
+  background-image: url(../images/manual-btn.jpg);
+}
+
+.twitter-btn.active a {
+  background-image: url(../images/twitter-btn.jpg);
+}
+
+.ins-btn.active a {
+  background-image: url(../images/inst-btn.jpg);
+}
+
+.manual-btn a {
+  background-image: url(../images/manual-btn-blackwhite.jpg);
+  color: #c8cace;
+}
+
+.twitter-btn a {
+  background-image: url(../images/twitter-btn-blackwhite.jpg);
+  color: #c8cace;
+}
+
+.ins-btn a {
+  background-image: url(../images/inst-btn-blackwhite.jpg);
+  color: #c8cace;
+}
+
