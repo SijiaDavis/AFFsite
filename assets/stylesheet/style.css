@@ -7,6 +7,7 @@ body {
 
 .navbar {
   height: 55px;
+  background: url(../images/seigaiha.png)
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -39,7 +40,7 @@ img {
   text-decoration: none;
 }
 
-a, a:hover {
+a, a:hover, .hash-tag {
   color: #ED1886;
 }
 
@@ -180,4 +181,13 @@ a.load-more-btn, a.load-more-btn:hover {
   background-image: url(../images/inst-btn-blackwhite.jpg);
   color: #c8cace;
 }
+
+.box-twitter h3 {
+  margin-top: 60px;
+}
+
+.box-twitter h4 {
+  margin: 40px 45px 65px;
+}
+
 
