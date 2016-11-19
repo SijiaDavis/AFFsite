@@ -1,0 +1,57 @@
+body {
+  height: 100%;
+  with: 100%;
+}
+
+.row {
+  margin-top: 40px;
+}
+.col-md-4 {
+    margin-top: 40px;
+  height:100vp;
+  border: 2px solid yellow;
+}
+
+.row {
+  height:100px
+}
+
+.text-box {
+  margin-top: 10px;
+  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  box-shadow: 1px 1px 2px 0 #d0d0d0;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+  padding: 10px;
+  position: relative;
+}
+
+#ribbon {
+  padding: 0 0 10px 0;
+  position: absolute;
+  top: -0.5em;
+  width: 40px;
+}
+
+#ribbon div {
+  background: #bb3a34;
+  background: linear-gradient(#e74841 0%, #bb3a34 100%);
+  color: #fff;
+  padding: 0.5em 0;
+  text-align: center;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5);
+}
+
+#ribbon div:after {
+  border-left: 20px solid #bb3a34;
+  border-right: 20px solid #bb3a34;
+  border-bottom: 10px solid transparent;
+  bottom: 0;
+  content: '';
+  height: 0;
+  left: 0;
+  position: absolute;
+  width: 0;
+}
