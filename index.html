@@ -1,48 +1,86 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Autumn Fashion Fix</title>
+    <!-- mobile view friendly -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap stylesheet -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- font awesome icon file -->
     <script src="https://use.fontawesome.com/8683593499.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <!-- bxSlider Javascript file -->
+    <script src="./assets/lib/jquery.bxslider.min.js"></script>
+    <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+    <!-- bxSlider CSS file -->
+    <link rel="stylesheet" href="./assets/jquery.bxslider.css" />
+    <!-- emoji CSS file (because emojis are freaking awesome) -->
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/stylesheet/style.css">
-  </head>
-  
-  <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid">
-        <ul class="nav nav-pills center-block">
-  <li role="presentation" class="btn active manual-btn"><a>Manual</a></li>
-  <li role="presentation" class="btn active twitter-btn"><a>Twitter</a></li>
-  <li role="presentation" class="btn active ins-btn"><a>Instagram</a></li>
-</ul>
+</head>
 
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
+<body>
+    <!-- navbar with filter buttons -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <ul class="nav nav-pills center-block">
+                <li role="presentation" class="btn active manual-btn"><a>Manual</a></li>
+                <li role="presentation" class="btn active twitter-btn"><a>Twitter</a></li>
+                <li role="presentation" class="btn active ins-btn"><a>Instagram</a></li>
+            </ul>
+        </div>
     </nav>
+    <!-- end of navbar -->
     
+    <!-- carousel -->
+    <ul class="bxslider">
+        <li><img src="./assets/images/photo0.jpg" /></li>
+        <li><img src="./assets/images/photo1.jpg" /></li>
+        <li><img src="./assets/images/photo2.jpg" /></li>
+        <li><img src="./assets/images/photo3.jpg" /></li>
+        <li><img src="./assets/images/photo4.jpg" /></li>
+        <li><img src="./assets/images/photo5.jpg" /></li>
+        <li><img src="./assets/images/photo6.jpg" /></li>
+        <li><img src="./assets/images/photo7.jpg" /></li>
+    </ul>
+    <!-- end of carousel -->
+
+    <!-- post wall section -->
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-4" id="col0"></div>
-      <div class="col-xs-12 col-sm-6 col-md-4" id="col1"></div>
-      <div class="col-xs-12 col-sm-6 col-md-4" id="col2"></div>
+        <div class="col-xs-12 col-sm-6 col-md-4" id="col0"></div>
+        <div class="col-xs-12 col-sm-6 col-md-4" id="col1"></div>
+        <div class="col-xs-12 col-sm-6 col-md-4" id="col2"></div>
     </div>
-    
+    <!-- end of post wall section -->
+
     <br/>
+    <!-- load more button -->
     <div class="row">
-      <div class = "col-xs-12">
-        <a class="load-more-btn center-block">
-          <button class="button-box">
+        <div class="col-xs-12">
+            <a class="load-more-btn center-block">
+                <button class="button-box">
               <span>Load more</span>
           </button>
-        </a>
-      </div>
+            </a>
+        </div>
     </div>
+    <<!-- end of load more button -->
+
+    <div class="clear"></div>
+    <!-- footer -->
+    <div class="footer">
+        <p>Made by <a href="mailto:arwen0603@gmail.com">Sijia</a> with <span class="heart">&hearts;</span></p>
+    </div>
+    <!-- end of footer -->
     
-    
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <!-- scripts -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="app.js"></script>
-  </body>
+    <!-- end of scripts -->
+</body>
+
 </html>

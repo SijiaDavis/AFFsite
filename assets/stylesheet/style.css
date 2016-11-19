@@ -1,102 +1,146 @@
 body {
-  height: 100%;
-  with: 100%;
-  font-family: 'Lato', sans-serif;
-  background: url(../images/brickwall.png);
+    height: 100%;
+    with: 100%;
+    font-family: 'Lato', sans-serif;
+    background: url(../images/brickwall.png); /* it's a posting wall after all... */
 }
 
 .navbar {
-  height: 55px;
-  background: url(../images/seigaiha.png)
+    height: 55px;
+    background: url(../images/seigaiha.png);
+}
+
+.bx-wrapper {
+    padding-top: 70px;
 }
 
 h1, h2, h3, h4, h5, h6, p {
-  color: #80787A;
+    color: #80787A;
 }
 
 h5 {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 img {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .row {
-  margin-top: 40px;
+    margin-top: 40px;
 }
 
 .col-md-4 {
-  margin-top: 10px;
-  height:100vp;
+    height: 100vp;
 }
 
-.row {
-  height:100px
+/* dynamic padding change based on size of window */
+#col0 {
+    padding: 0 0 0 20px;
+}
+
+#col1 {
+    padding: 0;
+}
+
+#col2 {
+    padding: 0 20px 0 0;
+}
+
+@media (max-width: 768px) {
+    #col0, #col1, #col2 {
+        padding: 0 20px 0 20px;
+    }
+}
+
+@media (min-width: 768px) {
+    #col1 {
+        padding: 0 20px 0 0;
+    }
+}
+
+@media (min-width: 992px) {
+    #col1 {
+        padding: 0;
+    }
 }
 
 .fa-2x, .fa-2x:hover {
-  color: #fff;
-  text-decoration: none;
+    color: #fff;
+    text-decoration: none;
 }
 
 a, a:hover, .hash-tag {
-  color: #ED1886;
+    color: #FF5733;
 }
 
 .text-box {
-  margin: 10px 5px;
-  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
-  -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
-  box-shadow: 2px 2px 3px 0 #d0d0d0;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
-  padding: 20px;
-  position: relative;
+    margin: 10px 5px;
+    -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+    -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+    box-shadow: 2px 2px 3px 0 #d0d0d0;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+    padding: 20px;
+    position: relative;
 }
 
 .box-twitter {
-  text-align: center;
+    text-align: center;
 }
 
+/* wunderlist ribbon style */
 #ribbon {
-  padding: 0 0 10px 0;
-  position: absolute;
-  top: -0.5em;
-  width: 40px;
+    padding: 0 0 10px 0;
+    position: absolute;
+    top: -0.5em;
+    width: 40px;
 }
 
 #ribbon div {
-  background: #bb3a34;
-  background: linear-gradient(#F27993 1%, #bb3a34 99%);
-  color: #fff;
-  padding: 0.5em 0;
-  text-align: center;
-  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5);
-  height: 40px;
+    background: #bb3a34;
+    background: linear-gradient(#F27993 1%, #bb3a34 99%);
+    color: #fff;
+    padding: 0.5em 0;
+    text-align: center;
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5);
+    height: 40px;
 }
 
 .ribbon-black#ribbon div {
-  background: #000;
-  background: linear-gradient(#A89D9F 1%, #000 99%);
+    background: #000;
+    background: linear-gradient(#A89D9F 1%, #000 99%);
 }
 
 #ribbon div:after {
-  border-left: 20px solid #bb3a34;
-  border-right: 20px solid #bb3a34;
-  border-bottom: 10px solid transparent;
-  bottom: 0;
-  content: '';
-  height: 0;
-  left: 0;
-  position: absolute;
-  width: 0;
+    border-left: 20px solid #bb3a34;
+    border-right: 20px solid #bb3a34;
+    border-bottom: 10px solid transparent;
+    bottom: 0;
+    content: '';
+    height: 0;
+    left: 0;
+    position: absolute;
+    width: 0;
 }
 
 .ribbon-black#ribbon div:after {
-  border-left: 20px solid #000;
-  border-right: 20px solid #000;
+    border-left: 20px solid #000;
+    border-right: 20px solid #000;
+}
+
+.load-more-btn.center-block {
+    width: 140px;
+    margin: 10px auto 20px;
+}
+
+.nav-pills.center-block {
+    width: 304px;
+}
+
+a.load-more-btn, a.load-more-btn:hover {
+    color: #6699D4;
 }
 
 .button-box {
@@ -104,21 +148,9 @@ a, a:hover, .hash-tag {
     background-color: transparent;
     text-align: center;
     text-transform: uppercase;
-    margin:auto;
+    margin: auto;
     padding: 6px;
     width: 140px;
-}
-
-.load-more-btn.center-block {
-  width: 140px;
-  margin: 10px auto 20px;
-}
-
-.nav-pills.center-block {
-  width: 304px;
-}
-a.load-more-btn, a.load-more-btn:hover {
-  color: #6699D4;
 }
 
 .button-box span {
@@ -126,7 +158,7 @@ a.load-more-btn, a.load-more-btn:hover {
     position: relative;
 }
 
-/* animate buttons on hover */
+/* animate load more button on hover */
 .button-box span:after {
     content: '>>';
     position: absolute;
@@ -143,51 +175,75 @@ a.load-more-btn, a.load-more-btn:hover {
 .button-box:hover span:after {
     opacity: 1;
     right: 0;
-} /* end animate buttons on hover */
+}
 
 .hidden {
-  display: none;
+    display: none;
 }
 
 .btn {
-  padding: 0;
-  margin-top: 6px;
-  width: 100px;
-  }
-  
+    padding: 0;
+    margin-top: 6px;
+    width: 100px;
+}
+
+/* filter buttons backgorund image - inspired by pinterest */
 .manual-btn.active a {
-  background-image: url(../images/manual-btn.jpg);
+    background-image: url(../images/manual-btn.jpg);
 }
 
 .twitter-btn.active a {
-  background-image: url(../images/twitter-btn.jpg);
+    background-image: url(../images/twitter-btn.jpg);
 }
 
 .ins-btn.active a {
-  background-image: url(../images/inst-btn.jpg);
+    background-image: url(../images/inst-btn.jpg);
 }
 
+/* filter buttons have black & white background image when in-active */
 .manual-btn a {
-  background-image: url(../images/manual-btn-blackwhite.jpg);
-  color: #c8cace;
+    background-image: url(../images/manual-btn-blackwhite.jpg);
+    color: #c8cace;
 }
 
 .twitter-btn a {
-  background-image: url(../images/twitter-btn-blackwhite.jpg);
-  color: #c8cace;
+    background-image: url(../images/twitter-btn-blackwhite.jpg);
+    color: #c8cace;
 }
 
 .ins-btn a {
-  background-image: url(../images/inst-btn-blackwhite.jpg);
-  color: #c8cace;
+    background-image: url(../images/inst-btn-blackwhite.jpg);
+    color: #c8cace;
 }
 
 .box-twitter h3 {
-  margin-top: 60px;
+    margin-top: 60px;
 }
 
 .box-twitter h4 {
-  margin: 40px 45px 65px;
+    margin: 40px 45px 65px;
 }
 
+.footer {
+    margin-top: 30px;
+    text-align: center;
+    color: white;
+    font-family: 'Satisfy', cursive;
+}
 
+.footer .heart {
+    color: red;
+}
+
+.footer a {
+    color: #f442b6;
+}
+
+.clear {
+    clear: both;
+}
+
+.time-stamp {
+    margin-top: 10px;
+    text-align: center;
+}
