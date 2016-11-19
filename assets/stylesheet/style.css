@@ -3,28 +3,41 @@ body {
   with: 100%;
 }
 
+img {
+  margin-bottom: 10px;
+}
+
 .row {
   margin-top: 40px;
 }
+
 .col-md-4 {
-    margin-top: 40px;
+  margin-top: 40px;
   height:100vp;
-  border: 2px solid yellow;
 }
 
 .row {
   height:100px
 }
 
+.fa-2x, .fa-2x:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+a, a:hover {
+  color: #ED1886;
+}
+
 .text-box {
-  margin-top: 10px;
+  margin: 10px 5px;
   -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
   -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
-  box-shadow: 1px 1px 2px 0 #d0d0d0;
+  box-shadow: 2px 2px 3px 0 #d0d0d0;
   background: #fff;
   border: 1px solid #ccc;
   border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
-  padding: 10px;
+  padding: 20px;
   position: relative;
 }
 
@@ -37,11 +50,17 @@ body {
 
 #ribbon div {
   background: #bb3a34;
-  background: linear-gradient(#e74841 0%, #bb3a34 100%);
+  background: linear-gradient(#F27993 1%, #bb3a34 99%);
   color: #fff;
   padding: 0.5em 0;
   text-align: center;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5);
+  height: 40px;
+}
+
+.ribbon-black#ribbon div {
+  background: #000;
+  background: linear-gradient(#6E6264 1%, #000 99%);
 }
 
 #ribbon div:after {
@@ -54,4 +73,9 @@ body {
   left: 0;
   position: absolute;
   width: 0;
+}
+
+.ribbon-black#ribbon div:after {
+  border-left: 20px solid #000;
+  border-right: 20px solid #000;
 }
