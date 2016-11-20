@@ -35,8 +35,7 @@ $(document).ready(function() {
             [0, 1, 2].forEach(function(i) {
                 $("#col" + i + " .text-box.hidden").slice(0, NUM_OF_POST_TO_SHOW).removeClass("hidden").addClass("displaying");
             });
-        } 
-        else {
+        } else {
             var activeArr = [];
             if (manualActive) activeArr.push('Manual');
             if (tweetActive) activeArr.push('Tweeter');
@@ -73,8 +72,7 @@ $(document).ready(function() {
                     cnt++;
                     // get more data and short circuit current loadMore process.
                     return getData(loadMore, cnt, NUM_OF_IMAGES);
-                } 
-                else {
+                } else {
                     currentPos++;
                 }
             }
@@ -277,6 +275,9 @@ function generatePostContent(item, mainDiv, imgCnt) {
 
 function getData(cb, cnt, imgCnt) {
 
+    // show loading gif
+    $(".loading").show();
+
     // json file hosted at https://api.myjson.com/bins/3nh96 and https://jsonblob.com/api/jsonBlob/582fcad1e4b0a828bd274a94
     $.get("https://jsonblob.com/api/jsonBlob/582fcad1e4b0a828bd274a94", function(data) {
 
@@ -313,5 +314,8 @@ function getData(cb, cnt, imgCnt) {
         // call loadMore
         cb();
 
+    }).done(function() {
+        // hide loading gif
+        $(".loading").hide();
     });
 }

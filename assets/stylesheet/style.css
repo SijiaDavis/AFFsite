@@ -2,7 +2,22 @@ body {
     height: 100%;
     with: 100%;
     font-family: 'Lato', sans-serif;
-    background: url(../images/brickwall.png); /* it's a posting wall after all... */
+    background: url(../images/brickwall.png);
+    /* it's a posting wall after all... */
+}
+
+.loading {
+    width: 200px;
+    height: 200px;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    z-index: 1;
+    /* Negative half of height. */
+    margin-left: -100px;
+    /* Negative half of width. */
+    position: fixed;
+    display: none;
 }
 
 .navbar {
@@ -34,7 +49,9 @@ img {
     height: 100vp;
 }
 
+
 /* dynamic padding change based on size of window */
+
 #col0 {
     padding: 0 0 0 20px;
 }
@@ -90,7 +107,9 @@ a, a:hover, .hash-tag {
     text-align: center;
 }
 
+
 /* wunderlist ribbon style */
+
 #ribbon {
     padding: 0 0 10px 0;
     position: absolute;
@@ -166,7 +185,9 @@ a.load-more-btn.disable-load, a.load-more-btn.disable-load:hover {
     position: relative;
 }
 
+
 /* animate load more button on hover */
+
 .button-box span:after {
     content: '>>';
     position: absolute;
@@ -195,7 +216,9 @@ a.load-more-btn.disable-load, a.load-more-btn.disable-load:hover {
     width: 100px;
 }
 
+
 /* filter buttons backgorund image - inspired by pinterest */
+
 .manual-btn.active a {
     background-image: url(../images/manual-btn.jpg);
 }
@@ -208,7 +231,9 @@ a.load-more-btn.disable-load, a.load-more-btn.disable-load:hover {
     background-image: url(../images/inst-btn.jpg);
 }
 
+
 /* filter buttons have black & white background image when in-active */
+
 .manual-btn a {
     background-image: url(../images/manual-btn-blackwhite.jpg);
     color: #c8cace;
