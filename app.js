@@ -170,7 +170,7 @@ function generateRelativeTimeStamp(publishedDate) {
     var today = new Date();
 
     // post published date
-    var publishedDate = new Date(publishedDate);
+    var publishedDate = new Date(publishedDate.replace(/\s/, 'T'));
 
     var diffInMo = today.getMonth() - publishedDate.getMonth() + (12 * (today.getFullYear() - publishedDate.getFullYear()));
 
