@@ -1,3 +1,7 @@
+// store data of the form {id: uniqueId, type: service_name}
+// for fetching data when some of the filters are applied
+var hash = [];
+
 $(document).ready(function() {
 
     // load image carousel
@@ -15,35 +19,113 @@ $(document).ready(function() {
     var NUM_OF_POST_TO_SHOW = NUM_OF_POST_TO_DISPLAY / 3;
     var NUM_OF_IMAGES = 14;
 
+    // states of filter buttons
+    var manualActive = true;
+    var tweetActive = true;
+    var instActive = true;
+
     // initial data loading
     getData(loadMore, cnt, NUM_OF_IMAGES);
 
     function loadMore() {
-        // for each column, un-hide posts
-        [0, 1, 2].forEach(function(i) {
-            $("#col" + i + " .text-box.hidden").slice(0, NUM_OF_POST_TO_SHOW).removeClass("hidden").addClass("displaying");
-        });
+
+        // if all types of post are being displayed now
+        if ((manualActive && tweetActive) && instActive) {
+            //for each column, un-hide posts
+            [0, 1, 2].forEach(function(i) {
+                $("#col" + i + " .text-box.hidden").slice(0, NUM_OF_POST_TO_SHOW).removeClass("hidden").addClass("displaying");
+            });
+        } 
+        else {
+            var activeArr = [];
+            if (manualActive) activeArr.push('Manual');
+            if (tweetActive) activeArr.push('Tweeter');
+            if (instActive) activeArr.push('Instagram');
+
+            var pos0 = hash.map(function(e) {
+                return e.id;
+            }).indexOf($("#col0 .text-box.displaying").last().attr("id"));
+            var pos1 = hash.map(function(e) {
+                return e.id;
+            }).indexOf($("#col1 .text-box.displaying").last().attr("id"));
+            var pos2 = hash.map(function(e) {
+                return e.id;
+            }).indexOf($("#col2 .text-box.displaying").last().attr("id"));
+
+            // find the index of the last post that's being displayed on the page
+            var pos = Math.max(pos0, pos1, pos2);
+
+            var count = NUM_OF_POST_TO_DISPLAY;
+
+            // start from index = currentPos and grab the next three posts that have the service_name that's currrently showing
+            var currentPos = pos + 1;
+            var ids = [];
+
+            while (count !== 0) {
+                // if the post have the service_name that's currrently showing
+                if (activeArr.indexOf(hash[currentPos].type) !== -1) {
+                    count--;
+                    ids.push(hash[currentPos].id);
+                }
+
+                // running out of posts. index reaching the boundry of hash
+                if (currentPos >= hash.length - 1) {
+                    cnt++;
+                    // get more data and short circuit current loadMore process.
+                    return getData(loadMore, cnt, NUM_OF_IMAGES);
+                } 
+                else {
+                    currentPos++;
+                }
+            }
+
+            // unhide each of the posts
+            ids.forEach(function(i) {
+                $("#" + i).slice(0, NUM_OF_POST_TO_SHOW).removeClass("hidden").addClass("displaying");
+            });
+        }
     }
 
     // trigger loadMore func when load more button is clicked
     $(".load-more-btn").on("click", function() {
-        // oh no we are running out of posts
-        if ($(".text-box.hidden").length < NUM_OF_POST_TO_DISPLAY) {
-            cnt++;
-            // make another api call to retrieve more data
-            getData(loadMore, cnt, NUM_OF_IMAGES);
-        } else {
-            loadMore();
+
+        var isDisabled = $(".load-more-btn").hasClass('disable-load');
+
+        if (!isDisabled) {
+
+            // check if we are running out of posts
+            if ($(".text-box.hidden").length < NUM_OF_POST_TO_DISPLAY) {
+                cnt++;
+                // make another api call to fetch more data
+                getData(loadMore, cnt, NUM_OF_IMAGES);
+            } else {
+                loadMore();
+            }
         }
+
     });
 
     // when filter button is clicked -> hide corresponding posts
     $(".nav-pills .btn").on("click", function() {
+
         // toggle style of filter button
         $(this).toggleClass("active");
+
         // get the type of posts to show/hide
         var type = $(this).text();
         $(".text-box.displaying." + type).toggleClass("hidden");
+
+        // update the states of the filter: if user have disabled all three types, loadMore button should be disabled
+        manualActive = $(".manual-btn").hasClass("active");
+        tweetActive = $(".twitter-btn").hasClass("active");
+        instActive = $(".ins-btn").hasClass("active");
+
+        if ((!manualActive && !tweetActive) && !instActive) {
+            $(".load-more-btn").addClass("disable-load");
+        } else {
+            $(".load-more-btn").removeClass("disable-load");
+        }
+
     });
 
 }); // end of document ready
@@ -80,6 +162,7 @@ function parseContents(str, type) {
     }
 
     return str;
+
 } // end of parseContent func
 
 // helper method for generating relative time stamp string
@@ -133,7 +216,8 @@ function generateRelativeTimeStamp(publishedDate) {
     }
 
     return relativeTimeStampStr;
-}
+
+} // end of generateRelativeTimeStamp
 
 // helper method for generating the main content of posts for each type
 function generatePostContent(item, mainDiv, imgCnt) {
@@ -154,8 +238,7 @@ function generatePostContent(item, mainDiv, imgCnt) {
             "target": "new"
         }).appendTo(mainDiv);
 
-    } 
-    else if (item.service_name === 'Twitter') {
+    } else if (item.service_name === 'Twitter') {
         mainDiv.addClass("box-twitter");
 
         // ribbon should display twitter icon
@@ -170,8 +253,7 @@ function generatePostContent(item, mainDiv, imgCnt) {
         $("<h3>").text(item.item_data.user.username).appendTo(mainDiv);
         $("<h4>").html(tweetStr).appendTo(mainDiv);
 
-    } 
-    else if (item.service_name === 'Instagram') {
+    } else if (item.service_name === 'Instagram') {
         // ribbon should display instagram icon
         $("<div>").attr("id", "ribbon").addClass("ribbon-black").append(
             $("<div>").append(
@@ -191,12 +273,12 @@ function generatePostContent(item, mainDiv, imgCnt) {
 
     $("<p>").addClass("time-stamp").html(relativeTimeStampStr).appendTo(mainDiv);
 
-}
+} // end of generatePostContent
 
 function getData(cb, cnt, imgCnt) {
 
-    // json file hosted at https://api.myjson.com/bins/3nh96
-    $.get("https://api.myjson.com/bins/3nh96", function(data) {
+    // json file hosted at https://api.myjson.com/bins/3nh96 and https://jsonblob.com/api/jsonBlob/582fcad1e4b0a828bd274a94
+    $.get("https://jsonblob.com/api/jsonBlob/582fcad1e4b0a828bd274a94", function(data) {
 
         // sort data based on published date in desc order
         data.items = data.items.sort(function(a, b) {
@@ -213,8 +295,13 @@ function getData(cb, cnt, imgCnt) {
             // text box the post has:
             var textbox = " .box" + uniqId;
 
+            hash.push({
+                id: uniqId,
+                type: item.service_name
+            });
+
             // append text-box div
-            $("<div>").addClass("text-box hidden box" + uniqId + " " + item.service_name).appendTo(col);
+            $("<div>").addClass("text-box hidden box" + uniqId + " " + item.service_name).attr("id", uniqId).appendTo(col);
 
             var mainDiv = $(col + textbox);
 

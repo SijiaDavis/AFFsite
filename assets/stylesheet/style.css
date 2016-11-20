@@ -153,6 +153,14 @@ a.load-more-btn, a.load-more-btn:hover {
     width: 140px;
 }
 
+a.load-more-btn.disable-load, a.load-more-btn.disable-load:hover {
+    color: #caccce;
+}
+
+.disable-load .button-box {
+    border: 3px solid #caccce;
+}
+
 .button-box span {
     transition: 0.3s;
     position: relative;
@@ -244,6 +252,9 @@ a.load-more-btn, a.load-more-btn:hover {
 }
 
 .time-stamp {
-    margin-top: 10px;
     text-align: center;
+}
+
+.Manual .time-stamp, .Instagram .time-stamp {
+    margin-top: 30px;
 }
